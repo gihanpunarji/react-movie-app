@@ -5,6 +5,7 @@ import { UseHomeFetch } from '../hooks/UseHomeFetch'
 import HeroImg from './HeroImg';
 import Grid from './Grid';
 import Thumb from './Thumb';
+import Spinner from './Spinner';
 
 function Home() {
 
@@ -31,6 +32,7 @@ function Home() {
                     movieID={movie.id} />
                 ))}
             </Grid>
+            <Spinner />
         </>
     )
 }
