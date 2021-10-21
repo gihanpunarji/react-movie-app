@@ -53,6 +53,7 @@ const Content = styled.div`
     background: var(--midGray);
     margin: 0 auto;
     border-radius: 40px;
+    color: var(--white);
 
     img {
         height: 40px;
@@ -71,6 +72,7 @@ const Content = styled.div`
         font-size: 28px;
         border: 0;
         height: 40px;
+        color: white;
         background: transparent;
         outline: none;
 

@@ -10,7 +10,7 @@ import SearchBar from './SearchBar';
 
 function Home() {
 
-    const { state, loading, error, setSerachTerm } = UseHomeFetch();
+    const { state, loading, error, searchTerm, setSerachTerm } = UseHomeFetch();
 
     return (
         <>
@@ -22,7 +22,7 @@ function Home() {
                 />
             : null }
             <SearchBar setSearchTerm={setSerachTerm} />
-            <Grid header='Popular Movies'>
+            <Grid header={searchTerm ? 'Search Results' : 'Popular Movies'}>
                 {state.results.map((movie) => (
                     <Thumb key={movie.id}
                     clikcable 
