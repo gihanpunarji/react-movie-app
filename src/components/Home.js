@@ -6,11 +6,12 @@ import HeroImg from './HeroImg';
 import Grid from './Grid';
 import Thumb from './Thumb';
 import Spinner from './Spinner';
+import SearchBar from './SearchBar';
 
 function Home() {
 
-    const { state, loading, error } = UseHomeFetch();
-    console.log(state);
+    const { state, loading, error, setSerachTerm } = UseHomeFetch();
+
     return (
         <>
             {state.results[0] ? 
@@ -20,6 +21,7 @@ function Home() {
                     text={state.results[0].overview} 
                 />
             : null }
+            <SearchBar setSearchTerm={setSerachTerm} />
             <Grid header='Popular Movies'>
                 {state.results.map((movie) => (
                     <Thumb key={movie.id}
