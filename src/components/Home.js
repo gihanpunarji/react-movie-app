@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { POSTER_SIE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
-import NoIMAGEE from '../images/no_image.jpg'
+import { POSTER_SIZE, BACKDROP_SIZE, IMAGE_BASE_URL } from '../config'
+import NoIMAGE from '../images/no_image.jpg'
 import { UseHomeFetch } from '../hooks/UseHomeFetch'
 import HeroImg from './HeroImg';
 import Grid from './Grid';
+import Thumb from './Thumb';
 
 function Home() {
 
     const { state, loading, error } = UseHomeFetch();
+    console.log(state);
     return (
         <>
             {state.results[0] ? 
@@ -19,7 +21,14 @@ function Home() {
             : null }
             <Grid header='Popular Movies'>
                 {state.results.map((movie) => (
-                    <div key={movie.id}>{movie.title}</div>
+                    <Thumb key={movie.id}
+                    clikcable 
+                    image={
+                        movie.poster_path
+                        ? IMAGE_BASE_URL + POSTER_SIZE + movie.poster_path
+                        : 'NoIMAGE'
+                    }
+                    movieID={movie.id} />
                 ))}
             </Grid>
         </>

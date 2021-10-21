@@ -51,7 +51,7 @@ const Text = styled.div`
         z-index: 100;
         max-width: 700px;
         position: absolute;
-        top: 40px;
+        bottom: 40px;
         margin-right: 20px;
         min-height: 100px;
         color: var(--white);
