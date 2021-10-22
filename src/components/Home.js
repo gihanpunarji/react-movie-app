@@ -7,10 +7,14 @@ import Grid from './Grid';
 import Thumb from './Thumb';
 import Spinner from './Spinner';
 import SearchBar from './SearchBar';
+import Button from './Button';
 
 function Home() {
 
-    const { state, loading, error, searchTerm, setSerachTerm } = UseHomeFetch();
+    const { state, loading, error, searchTerm, setSerachTerm, setisLoading } = UseHomeFetch();
+
+    console.log(state);
+    if(error) return <div>Something went wrong...</div>
 
     return (
         <>
@@ -34,7 +38,10 @@ function Home() {
                     movieID={movie.id} />
                 ))}
             </Grid>
-            <Spinner />
+            {loading && <Spinner />}
+            {state.page < state.total_pages && !loading && ( 
+                <Button text='Load More' callback={() => setisLoading(true)} />
+            )}
         </>
     )
 }

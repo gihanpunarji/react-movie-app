@@ -68,7 +68,7 @@ const Content = styled.div`
 
     input {
         margin-left: 10px;
-        width: 80%;
+        width: 800px;
         font-size: 28px;
         border: 0;
         height: 40px;
